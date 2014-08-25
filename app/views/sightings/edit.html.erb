@@ -1,0 +1,31 @@
+<h1>Update Sighting for <%= @sighting.species.name %></h1>
+
+  <% if @sighting.errors.any? %>
+    <h3>Please fix these errors:</h3>
+    <ul>
+    <% @sighting.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+</ul>
+  <% end %>
+
+<form action="." method="patch">
+  <label for="latitude">Latitude</label>
+  <input id="latitude" name="latitude" type="text" value="<%= @sighting.latitude %>">
+
+  <label for="longitude">Longitude</label>
+  <input id="longitude" name="longitude" type="text" value="<%= @sighting.longitude %>">
+
+  <label for="date">Date</label>
+  <input id="date" name="date" type="text" value="<%= @sighting.date %>">
+
+  <label for="region_id">Region</label>
+  <select name="region_id">
+    <option value="1">NorthWest</option>
+    <option value="2">SouthWest</option>
+    <option value="3">SouthEast</option>
+    <option value="4">SouthWest</option>
+  </select>
+
+  <button>Update Species</button>
+</form>

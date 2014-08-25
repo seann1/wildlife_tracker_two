@@ -1,5 +1,15 @@
 <h1><%= @species.name %></h1>
 
+<h2>Existing sightings:</h2>
+
+<ul>
+  <% @species.sightings.each do |time| %>
+    <li><a href="/species/<%= @species.id %>/sightings/<%= time.id %>"><%= time.latitude %>    <%= time.longitude %>    <%= time.date %>    <%= time.region.name %></li>
+  <% end %>
+</ul>
+
+<p><a href="/species/<%= @species.id %>/sightings/new">Enter new sighting</a></p>
+
 
 
 <p><a href="/species/<%= @species.id %>/edit">Edit</a></p>
@@ -7,5 +17,6 @@
       data-confirm="You sure?"
       data-method="delete"
       rel="nofollow">Delete</a></p>
+
 
 <p><a href="/species">Return to species list</a></p>

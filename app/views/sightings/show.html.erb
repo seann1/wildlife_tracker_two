@@ -1,0 +1,9 @@
+<h1>Sighting number <%= @sighting.id %> For <%= @sighting.species.name %></h1>
+
+<h2><%= @sighting.latitude %>    <%= @sighting.longitude %>    <%= @sighting.date %>    <%= @sighting.region.name %></h2>
+
+<p><a href="/species/<%= @sighting.species.id %>/sightings/<%= @sighting.id %>/edit">Edit</a></p>
+<p><a href="/species/<%= @sighting.species.id %>/sightings/<%= @sighting.id %>/destroy"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a></p>
