@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   match('species/:id/sightings/:sighting_id/edit', {:via => :get, :to => 'sightings#edit'})
   match('species/:id/sightings/:sighting_id', {:via => [:patch, :put], :to => 'sightings#update'})
   match('species/:id', {:via => :delete, :to => 'species#destroy'})
+  match('species/:id/sightings/:sighting_id/destroy', {:via => :delete, :to => 'sightings#destroy'})
+  match('regions/:region_id', {:via => :get, :to => 'regions#show'})
 
 end
 
