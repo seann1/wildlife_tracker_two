@@ -4,7 +4,16 @@
 
 <ul>
   <% @species.sightings.each do |time| %>
-    <li><a href="/species/<%= @species.id %>/sightings/<%= time.id %>"><%= time.latitude %>    <%= time.longitude %>    <%= time.date %>    <%= time.region.name %></li>
+  <% if time.region_id == 1 %>
+    <% @region = "Northwest" %>
+  <% elsif time.region_id == 2 %>
+    <% @region = "Southwest" %>
+  <% elsif time.region_id == 3 %>
+    <% @region = "Southeast" %>
+  <% elsif time.region_id == 4 %>
+    <% @region = "Northeast" %>
+  <% end %>
+    <li><a href="/species/<%= @species.id %>/sightings/<%= time.id %>"><%= time.latitude %>    <%= time.longitude %>    <%= time.date %>    <%= @region %></li>
   <% end %>
 </ul>
 

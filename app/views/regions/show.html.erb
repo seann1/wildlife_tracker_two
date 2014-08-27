@@ -1,0 +1,6 @@
+
+<ul>
+  <% @sightings_for_region.each do |i| %>
+    <li><a href="/sightings/<%= i.id %>"><%= i.latitude %></li>
+  <% end %>
+</ul>

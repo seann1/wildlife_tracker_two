@@ -50,6 +50,19 @@ class SightingsController < ApplicationController
     end
   end
 
+  def show_all
+    @regions = Region.all
+    @sightings_for_region = Sighting.where(params[:region_id], params[:value])
+    render('sightings/region.html.erb')
+  end
+
+  def show_for_region
+    region_id = request.original_url.split('/')[2].to_i
+    @sightings_for_region = Sighting.where(:id => region_id)
+    render('regions/show.html.erb')
+
+  end
+
   def destroy
     @sighting = Sighting.find(params[:id])
     @sighting.destroy
