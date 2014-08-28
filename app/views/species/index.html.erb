@@ -1,10 +1,38 @@
-<h1>Species</h1>
+<div class="page-wrap">
+<br>
+<div class="container">
+  <div class="navbar navbar-default">
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="/sightings/region/">View sightings by region</a></li>
+      <li><a href="/species/new/">New Species</a></li>
+      <li><a href="/sightings/dates">View sightings by date range</a></li>
+      <li><a href="/sightings/index">View all sightings</a></li>
+    </ul>
+  </div>
+</div>
 
-<ul>
+
+<table class="table table-striped table-hover" >
+  <thead>
+    <tr class="active">
+      <th>Species</th>
+    </tr>
+  </thead>
+  <tbody>
   <% @species.each do |animal| %>
-    <li><a href="/species/<%= animal.id %>"><%= animal.name %></li>
+  <tr class"primary">
+    <td><a href="/species/<%= animal.id %>"><%= animal.name %></td>
+  </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
+</div>
+</div>
+<footer class="site-footer">
+Sean Niesen
+</footer>
 
-<p><a href="/species/new/">Create a new species</p>
-<p><a href="/sightings/region/">View sightings by region</p>
+
+

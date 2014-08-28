@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   match('/', {:via => :get, :to => 'species#index'})
   match('species', {:via => :get, :to => 'species#index'})
+  match('sightings/index', {:via => :get, :to => 'sightings#index'})
   match('sightings', {:via => :get, :to => 'sightings#index'})
   match('species/new', {:via => :post, :to => 'species#create'})
   match('species', {:via => :post, :to => 'species#create'})
@@ -13,11 +14,12 @@ Rails.application.routes.draw do
   match('species/:id', {:via => [:patch, :put], :to => 'species#update'})
   match('species/:id/sightings/:sighting_id/edit', {:via => :get, :to => 'sightings#edit'})
   match('species/:id/sightings/:sighting_id', {:via => [:patch, :put], :to => 'sightings#update'})
+  match('sightings/dates', {:via =>:get, :to => 'sightings#date_range'})
+  match('sightings/dates/by_date', {:via =>:post, :to => 'sightings#by_date'})
   match('species/:id', {:via => :delete, :to => 'species#destroy'})
   match('species/:id/sightings/:sighting_id/destroy', {:via => :delete, :to => 'sightings#destroy'})
   match('regions/:region_id', {:via => :get, :to => 'regions#show'})
   match('sightings/region', {:via => :get, :to => 'sightings#show_all'})
-  match('sightings/region', {:via => :post, :to => 'sightings#show_all'})
-  match('sightings/:region_id', {:via => :get, :to => 'sightings#show_for_region'})
+  match('sightings/region/:region_id', {:via => :get, :to => 'sightings#show_for_region'})
 end
 

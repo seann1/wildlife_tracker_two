@@ -1,3 +1,21 @@
+<br>
+<div class="container">
+  <div class="navbar navbar-default">
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li class="active"><a href="/sightings/region/">View sightings by region</a></li>
+      <li><a href="/species/new/">New Species</a></li>
+      <li><a href="/sightings/dates">View sightings by date range</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    </ul>
+
+
+
 <h1>New Sighting for <%= @species.name %></h1>
 
   <% if @sighting.errors.any? %>
@@ -9,15 +27,17 @@
 </ul>
   <% end %>
 
+<div class="form-group">
 <form action="." method="post">
-  <label for="latitude">Latitude</label>
-  <input id="latitude" name="latitude" type="text" value="<%= @sighting.latitude %>">
+  <label class="control-label" for="latitude">Latitude</label>
+  <input class="form-control" id="latitude" name="latitude" type="text" value="<%= @sighting.latitude %>">
 
-  <label for="longitude">Longitude</label>
-  <input id="longitude" name="longitude" type="text" value="<%= @sighting.longitude %>">
+  <label class="control-label" for="longitude">Longitude</label>
+  <input class="form-control" id="longitude" name="longitude" type="text" value="<%= @sighting.longitude %>">
 
-  <label for="date">Date</label>
-  <input id="date" name="date" type="text" value="<%= @sighting.date %>">
+  <label class="control-label" for="date">Date</label>
+  <input class="form-control" id="date" name="date" type="text" value="<%= @sighting.date %>">
+  <br>
 
   <label for="region_id">Region</label>
   <select name="region_id">
@@ -25,9 +45,14 @@
     <option value="2">SouthWest</option>
     <option value="3">SouthEast</option>
     <option value="4">NorthEast</option>
+
   </select>
+  <br>
+  <br>
 
-  <button>Create Species</button>
+  <button class="btn btn-default">Enter Sighting</button>
 </form>
+</div>
+</div>
 
-<p><a href="/species">Return to species list</a></p>
+</div>

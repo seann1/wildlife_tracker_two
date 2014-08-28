@@ -1,0 +1,46 @@
+<br>
+<div class="container">
+  <div class="navbar navbar-default">
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li ><a href="/sightings/region/">View sightings by region</a></li>
+      <li><a href="/species/new/">New Species</a></li>
+      <li class="active"><a href="/sightings/dates">View sightings by date range</a></li>
+    </ul>
+  </div>
+</div>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr class="active">
+      <th>Latitude</th><th>Longitude</th><th>Date</th><th>Region</th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% @sightings.each do |time| %>
+  <% if time.region_id == 1 %>
+    <% @region = "Northwest" %>
+  <% elsif time.region_id == 2 %>
+    <% @region = "Southwest" %>
+  <% elsif time.region_id == 3 %>
+    <% @region = "Southeast" %>
+  <% elsif time.region_id == 4 %>
+    <% @region = "Northeast" %>
+  <% end %>
+
+  <tr class="primary"><td><a href="/species/<%= time.species_id %>/sightings/<%= time.id %>"><%= time.latitude %></td>    <td><%= time.longitude %></td>  <td>  <%= time.date %></td>    <td><%= @region %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+</div>

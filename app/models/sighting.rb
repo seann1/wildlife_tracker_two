@@ -7,4 +7,8 @@ class Sighting < ActiveRecord::Base
 
   belongs_to :species
   belongs_to :region
+
+  def self.by_date(start_date, ending_date)
+    Sighting.where(date: start_date..ending_date)
+  end
 end

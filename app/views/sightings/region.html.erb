@@ -1,7 +1,28 @@
+<br>
+<div class="container">
+  <div class="navbar navbar-default">
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home</a></li>
+      <li class="active"><a href="/sightings/region/">View sightings by region</a></li>
+      <li><a href="/species/new/">New Species</a></li>
+      <li><a href="/sightings/dates">View sightings by date range</a></li>
+    </ul>
+  </div>
+</div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr class="active">
+        <th>regions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @regions.each do |i| %>
+        <tr class="primary"><td><a href="/sightings/region/<%= i.id %>"><%= i.name %></a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
+</div>
 
-<ul>
-<% @regions.each do |i| %>
-  <li><a href="/sightings/<%= i.id %>"><%= i.name %></li>
-<% end %>
-</ul>

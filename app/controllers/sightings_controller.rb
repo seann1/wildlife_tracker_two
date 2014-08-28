@@ -1,8 +1,13 @@
 class SightingsController < ApplicationController
 
   def index
-    @sightings = Sighting.all
-    render('sightings/show.html.erb')
+    if params[:start_date] != nil
+      @sightings = Sighting.by_date(params[:start_date], params[:end_date])
+    else
+
+      @sightings = Sighting.all
+      render('sightings/index.html.erb')
+    end
   end
 
   def show
@@ -57,14 +62,18 @@ class SightingsController < ApplicationController
   end
 
   def show_for_region
-    region_id = request.original_url.split('/')[2].to_i
-    @sightings_for_region = Sighting.where(:id => region_id)
+    @region = Region.find(params[:region_id])
+    @sightings_for_region = Sighting.where(:region_id => params[:region_id])
     render('regions/show.html.erb')
 
   end
 
+  def date_range
+    render ('sightings/dates.html.erb')
+  end
+
   def destroy
-    @sighting = Sighting.find(params[:id])
+    @sighting = Sighting.find(params[:sighting_id])
     @sighting.destroy
     render('sightings/destroy.html.erb')
   end

@@ -1,0 +1,33 @@
+#center {
+  text-align: center;
+  color: #D6D6D6;
+}
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -15px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+  height: 15px;
+}
+.site-footer {
+  background: #E6E6E6;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #D9D9D9;
+  color: #D6D6D6;
+  font-size: 9px;
+}
+
