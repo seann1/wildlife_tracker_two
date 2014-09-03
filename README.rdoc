@@ -1,4 +1,4 @@
-http://wildlife-tracker-two.herokuapp.com/
+http://wildlife-tracker-two.herokuapp.com
 
 
 This wildlife tracker allows the user to enter species and sightings for each species. The user can also look sightings up by region and species.
